@@ -57,11 +57,11 @@ public class SearchResultAdapter
       holder.placeNameView.setText(results.get(position).text());
     }
 
-    if (results.get(position).properties().has(ADDRESS)) {
-      holder.addressView.setText(results.get(position).properties()
-        .getAsJsonPrimitive(ADDRESS).getAsString());
-    } else if (results.get(position).placeName() != null) {
+    if (results.get(position).placeName() != null) {
       holder.addressView.setText(results.get(position).placeName());
+    } else if (results.get(position).properties().has(ADDRESS)) {
+      holder.addressView.setText(results.get(position).properties()
+              .getAsJsonPrimitive(ADDRESS).getAsString());
     } else {
       holder.addressView.setHeight(0);
     }
